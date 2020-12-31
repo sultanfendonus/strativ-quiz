@@ -106,16 +106,15 @@ const TopBar = props => {
         </RouterLink>
         <div className={classes.flexGrow} />
 
-        <Hidden mdDown>
-          <Button
-            className={classes.logoutButton}
-            color="inherit"
-            onClick={handleLogout}
-          >
-            <InputIcon className={classes.logoutIcon} />
-            Sign out
-          </Button>
-        </Hidden>
+        <Button
+          className={classes.logoutButton}
+          color="inherit"
+          onClick={handleLogout}
+        >
+          <InputIcon className={classes.logoutIcon} />
+          Sign out
+        </Button>
+
         <Hidden lgUp>
           <IconButton color="inherit" onClick={onOpenNavBarMobile}>
             <MenuIcon />

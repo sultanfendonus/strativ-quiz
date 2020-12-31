@@ -85,6 +85,7 @@ const AddNewQuestion = props => {
   const [optionList, setOptionList] = React.useState([]);
   const [textOption, setTextOption] = React.useState("");
   const [answer, setAnswer] = React.useState(null);
+  const [value, setValue] = React.useState("");
 
   const dispatch = useDispatch();
 
@@ -92,6 +93,7 @@ const AddNewQuestion = props => {
     setStatement("");
     setOptionList([]);
     setTextOption("");
+    setValue("");
   };
 
   const handleClickOpen = () => {
@@ -116,7 +118,11 @@ const AddNewQuestion = props => {
     data.options = options;
 
     if (statement === "" || optionList.length === 0 || value === "") {
-      alert("please input necessary field.");
+      if (statement && optionList.length > 0 && value === "") {
+        alert("Please choose an option before save question.");
+      } else {
+        alert("please input Question statement and options.");
+      }
     } else {
       console.log(data);
       dispatch(addNewQuestionToQuestionBank(data));
@@ -124,7 +130,6 @@ const AddNewQuestion = props => {
       clearState();
     }
   };
-  const [value, setValue] = React.useState("");
 
   const handleChange = (event, index) => {
     setValue(event.target.value);
@@ -153,11 +158,12 @@ const AddNewQuestion = props => {
         startIcon={<AddIcon />}
         onClick={handleClickOpen}
       >
-        Create New Question
+        Add New
       </Button>
 
       <Dialog
-        maxWidth={"xl"}
+        fullWidth={true}
+        maxWidth={"md"}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
@@ -170,7 +176,7 @@ const AddNewQuestion = props => {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <TextField
               onChange={event => setStatement(event.target.value)}
-              style={{ marginBottom: 10, width: 600 }}
+              style={{ marginBottom: 10 }}
               id="question-statement"
               label="Question Statement"
               multiline

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import {
   deleteQuestionFromQuestionBank,
@@ -10,14 +10,10 @@ import { Avatar, Card, CardContent, Grid, Typography } from "@material-ui/core";
 import { Page } from "components";
 
 import Button from "@material-ui/core/Button";
-import List from "@material-ui/core/List";
 import DeleteIcon from "@material-ui/icons/Delete";
-import Backdrop from "@material-ui/core/Backdrop";
-import CircularProgress from "@material-ui/core/CircularProgress";
 // import EditQuestion from './components/EditQuestion';
 import ViewQuestion from "./components/ViewQuestion";
 import clsx from "clsx";
-import Pagination from "@material-ui/lab/Pagination";
 import AddNewQuestion from "./components/AddNewQuestion";
 import EditQuestion from "./components/EditQuestion";
 import useRouter from "../../../utils/useRouter";
@@ -129,7 +125,7 @@ const Question = props => {
                   variant="contained"
                   className={classes.button}
                 >
-                  View Submission
+                  Submissions
                 </Button>
                 <ViewQuestion question={question} />
 
@@ -163,9 +159,7 @@ const Question = props => {
         spacing={1}
         justify={"space-between"}
       >
-        <h2>
-          Question Bank ({props.questionList && props.questionList.length})
-        </h2>
+        <h2>Questions ({props.questionList && props.questionList.length})</h2>
         <div>
           <AddNewQuestion />
         </div>

@@ -60,6 +60,7 @@ const EditQuestion = props => {
   };
   const handleClose = () => {
     setOpen(false);
+    setValue("");
   };
 
   const handleUpdateQuestion = () => {
@@ -119,7 +120,8 @@ const EditQuestion = props => {
       </Button>
 
       <Dialog
-        maxWidth={"xl"}
+        fullWidth={true}
+        maxWidth={"md"}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
@@ -133,7 +135,7 @@ const EditQuestion = props => {
             <TextField
               onChange={event => setStatement(event.target.value)}
               value={statement}
-              style={{ marginBottom: 10, width: 600 }}
+              style={{ marginBottom: 10 }}
               id="question-statement"
               label="Question Statement"
               multiline
