@@ -121,7 +121,7 @@ const AddNewQuestion = props => {
       if (statement && optionList.length > 0 && value === "") {
         alert("Please choose an option before save question.");
       } else {
-        alert("please input Question statement and options.");
+        alert("please input Question statement and some options.");
       }
     } else {
       console.log(data);
@@ -186,7 +186,7 @@ const AddNewQuestion = props => {
           </div>
 
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography>Add some option and choose right answer:</Typography>
+            <Typography>Add some options and choose a right answer:</Typography>
           </div>
 
           <FormControl component="fieldset">
