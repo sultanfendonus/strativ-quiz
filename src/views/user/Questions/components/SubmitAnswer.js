@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import { submitAnswer, reSubmitAnswer } from "actions";
-import AddIcon from "@material-ui/icons/Add";
+import { reSubmitAnswer, submitAnswer } from "actions";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/styles";
-import { withStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -134,7 +126,7 @@ const SubmitAnswer = props => {
           <FormControl component="fieldset">
             <RadioGroup aria-label="gender" name="gender1" value={value}>
               {optionList.map((option, index) => (
-                <div>
+                <div key={index}>
                   <FormControlLabel
                     key={index}
                     value={option.optionText}

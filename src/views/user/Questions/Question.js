@@ -90,7 +90,6 @@ const Question = props => {
         </Typography>
       );
     }
-    console.log(props.submittedQuestionList);
 
     questionList.forEach((question, index) => {
       const result = props.submittedQuestionList.find(
@@ -102,8 +101,6 @@ const Question = props => {
         questionList[index].submissionHistory = result.submissionHistory;
       }
     });
-
-    console.log(questionList);
 
     return questionList.map(question => {
       return (
