@@ -80,13 +80,13 @@ const ViewQuestion = props => {
           {props.question.options.map((option, index) => {
             if (option.correct) {
               return (
-                <Typography style={{ color: "blue", fontSize: 16 }}>
+                <Typography key={index} style={{ color: "blue", fontSize: 16 }}>
                   {charArray[index]}) {option.optionText}
                 </Typography>
               );
             }
             return (
-              <Typography>
+              <Typography key={index}>
                 {charArray[index]}) {option.optionText}
               </Typography>
             );

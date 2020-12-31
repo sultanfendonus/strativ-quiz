@@ -179,9 +179,7 @@ const Question = props => {
 
 const mapStateToProps = state => {
   return {
-    questionList: state.QuestionBankReducer.questionList,
-    deleteQuestionLoaderVisibility:
-      state.QuestionBankReducer.deleteQuestionLoaderVisibility
+    questionList: state.QuestionBankReducer.questionList
   };
 };
 
